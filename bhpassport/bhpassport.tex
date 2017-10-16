@@ -34,12 +34,21 @@
 \title{ПАСПОРТ РАЗВЕДОЧНО-ЭКСПЛУАТАЦИОННОЙ СКВАЖИНЫ}
 \date{\today}
 
+\newcommand{\txtExecutor}{ООО «Гидросфера»}
+\newcommand{\txtAddress}{Свердловская обл, г. Екатеринбург, ул. Кутузова, дом 47}
+\newcommand{\txtCadaster}{66:41:0508041:8}
+%% ../ приуроченных к ...
+\newcommand{\txtGeology}{трещиноватым разностям палеозоя}
+
 
 \begin{document} % конец преамбулы, начало документа
+
+%% Титульная страница
+
 \begin{titlepage}
 	\begin{center}
-		\textbf{ООО «Гидросфера»}
-		\vspace{2.5cm}
+		\textbf{\txtExecutor}
+		\vspace{5.5cm}
 		
 		{\LARGE ПАСПОРТ РАЗВЕДОЧНО-ЭКСПЛУАТАЦИОННОЙ СКВАЖИНЫ}
 		\vspace{0.25cm}
@@ -48,11 +57,11 @@
 		
 		\bigskip
 		
-		на участке по адресу: 
+		на участке по адресу:
+				
+		\underline{\txtAddress}
 		
-		Свердловская обл, г. Екатеринбург, ул. Кутузова, дом 47
-
-		Кадастровый номер 66:41:0508041:8
+		Кадастровый номер \txtCadaster
 		
 		\vfill
 	
@@ -64,19 +73,17 @@
 	
 	\newlength{\ML}
 	\settowidth{\ML}{«\underline{\hspace{0.7cm}}» \underline{\hspace{2cm}}}
-	\hfill\begin{minipage}{0.4\textwidth}
+	\hfill\begin{minipage}{1.0\textwidth}
 		Директор ООО «Гидросфера» к.г.м.н.
-		\\
 		\underline{\hspace{\ML}} А.\,А.~Кашкаров\\
 	\end{minipage}%
 	\bigskip
 	
-	\hfill\begin{minipage}{0.4\textwidth}
-		Ответственный исполнитель, к.г.м.н.
-		\\
-		\underline{\hspace{\ML}} А.\,А.~Кашкаров\\
+%		Ответственный исполнитель, к.г.м.н.
+%		\underline{\hspace{\ML}} А.\,А.~Кашкаров\\
 %		«\underline{\hspace{0.7cm}}» \underline{\hspace{2cm}} 2014 г.
-	\end{minipage}%
+%	\end{minipage}%
+
 	\vfill
 	
 	\begin{center}
