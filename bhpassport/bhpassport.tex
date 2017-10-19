@@ -11,6 +11,9 @@
 \usepackage[utf8]{inputenc}			% кодировка исходного текста
 \usepackage[english,russian]{babel}	% локализация и переносы
 
+%%% 
+\usepackage{rotating}				% Поворот текста
+
 %%% Дополнительная работа с математикой
 \usepackage{amsmath,amsfonts,amssymb,amsthm,mathtools} % AMS
 \usepackage{icomma} % "Умная" запятая: $0,2$ --- число, $0, 2$ --- перечисление
@@ -260,6 +263,11 @@
 По окончании откачки уровень воды в скважине остановился на глубине  5,0 м от поверхности земли.
 
 \section*{Результаты откачки}
+
+%% Повернутый текст
+\begin{sideways} 
+	Динамичный уровень воды, м
+\end{sideways}
 
 \section*{Расчетные данные по результатам откачки}
 
