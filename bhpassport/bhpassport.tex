@@ -17,7 +17,6 @@ top=2cm,bottom=2cm,bindingoffset=0cm]{geometry}
 
 %%% 
 \usepackage{rotating}				% Поворот текста
-\usepackage{multirow}				% Таблицы с объединенными ячейками
 
 %%% Дополнительная работа с математикой
 \usepackage{amsmath,amsfonts,amssymb,amsthm,mathtools} % AMS
@@ -92,7 +91,6 @@ top=2cm,bottom=2cm,bindingoffset=0cm]{geometry}
 		{\LARGE ПАСПОРТ РАЗВЕДОЧНО-ЭКСПЛУАТАЦИОННОЙ СКВАЖИНЫ}
 		\vspace{0.25cm}
 		
-%		\underline{для хозяйственно-бытового водоснабжения}
 		для хозяйственно-бытового водоснабжения
 		
 		\bigskip
@@ -149,12 +147,6 @@ top=2cm,bottom=2cm,bindingoffset=0cm]{geometry}
 
 	\bigskip
 
-%	\begin{align}
-%		\text{Кадастровый номер}&: \text{\txtCadaster} \\
-%		\text{Координаты скважины}&: \text{\txtCoords} \\
-%		\text{Абсолютная отметка устья скважины}&: \text{\txtHeight} \\
-%	\end{align}
-	
 	Кадастровый номер: \txtCadaster
 
 	Координаты скважины: \txtCoords
@@ -163,6 +155,7 @@ top=2cm,bottom=2cm,bindingoffset=0cm]{geometry}
 
 	\begin{figure}[h]
 		\fbox{\includegraphics[width=\textwidth]{map.jpg}}
+%		\fbox{\includegraphics[width=650px]{map.jpg}}
 		\caption{Обзорная карта расположения скважины}
 	\end{figure}
 
@@ -172,21 +165,28 @@ top=2cm,bottom=2cm,bindingoffset=0cm]{geometry}
 
     \bigskip
 
-    Бурение начато << >> \txtYear \,г. 
+	\settowidth{\ML}{<<\underline{\hspace{0.7cm}}>> \underline{\hspace{2cm}}}
+	\hfill
 
-	Бурение окончено << >> \txtYear \,г.
-
-	Приемно-сдаточный акт на скважину подписан << >> \txtYear \,г.
+	\begin{tabular}{@{}ll}
+	Бурение начато & << \underline{\hspace{0.7cm}} >> \underline{\hspace{3cm}} \txtYear \,г.\\
+	Бурение окончено & << \underline{\hspace{0.7cm}} >> \underline{\hspace{3cm}} \txtYear \,г.\\
+	\end{tabular}
 	
 	\bigskip
 	
+%	Приемно-сдаточный акт на скважину подписан << >> \txtYear \,г.
+	Приемно-сдаточный акт на скважину подписан << \underline{\hspace{0.7cm}} >> \underline{\hspace{3cm}} \txtYear \,г.	
+	
+	\pagebreak
+	
 	При бурении скважины пройдены следующие горные породы:
 
-	\begin{table}[]\footnotesize
+	\begin{table}[!h]\footnotesize
 	\centering
-	\begin{tabular}[c]{|@{}p{1cm}|@{}p{2.5cm}|@{}p{8cm}|@{}p{1.5cm}|@{}p{1.5cm}|@{}p{1.5cm}|}
+	\begin{tabular}[c]{|p{0.7cm}|p{2cm}|p{7cm}|p{1.5cm}|p{1.5cm}|p{1cm}|}
 		\hline 
-		№№ п.п. & Геологический возраст пройденных пород & Описание пройденных пород и характер водоносности & Глубина кровли, м & Глубина подошвы, м & Категория пород \\ 
+		№№ п.п. & Геологи\-ческий возраст пройденных пород & Описание пройденных пород и характер водоносности & Глубина кровли, м & Глубина подошвы, м & Катего\-рия пород \\ 
 		\hline 
 		1 & Q IV а & Почвенно-растительный слой, кора выветривания & 0 & 2,0 & III\\ 
 		\hline 
@@ -204,20 +204,6 @@ top=2cm,bottom=2cm,bindingoffset=0cm]{geometry}
 	\end{table}
 
 	\bigskip
-	
-\begin{table}[]\footnotesize
-	\centering
-	\begin{tabular}{|c|c|l|c|c|c|}
-		\hline
-		\begin{tabular}[c]{@{}p{1cm}}№№ п.п.\end{tabular} & \begin{tabular}[c]{@{}c@{}}Геологический возраст пройденных пород\end{tabular} & \begin{tabular}[c]{@{}l@{}}Описание пройденных пород \\ и характер водоносности\end{tabular} & \begin{tabular}[c]{@{}c@{}}Глубина \\ кровли\end{tabular} & \begin{tabular}[c]{@{}c@{}}Глубина \\ подошвы\end{tabular} & \begin{tabular}[c]{@{}c@{}}Категория \\ пород\end{tabular} \\ \hline
-		1 & Q IV а & Почвенно-растительный слой, кора выветривания & 0 & 2,0 & III \\ \hline
-		2 & Mz & Cкальные грунты с прослоями суглинков & 2,0 & 25,0 & V \\ \hline
-		3 & Pz & Скальные грунты – эффузивы трещиноватые & 25,0 & 38,0 & VIII \\ \hline
-		&  &  &  &  &  \\ \hline
-		&  &  &  &  &  \\ \hline
-		&  &  &  &  &  \\ \hline
-	\end{tabular}
-\end{table}
 	
 	\section*{Конструкция скважины}
 
@@ -312,11 +298,11 @@ top=2cm,bottom=2cm,bindingoffset=0cm]{geometry}
 \begin{tabular}{|c|c|c|c|c|c|c|c|c|c|}
 	\hline 
 	\multicolumn{8}{|c|}{Откачка}&  &  \\ 
-	\hline 
+	\cline{1-8} 
 	\multicolumn{4}{|c|}{Загружение труб, м}  &  &  &  &  &  &  \\ 
-	\hline 
+	\cline{1-4} 
 	\multicolumn{2}{|c|}{водоподъемной} & \multicolumn{2}{c|}{воздухопроводной} &  &  &  &  &  & \\ 
-	\hline 
+	\cline{1-4} 
 	\begin{sideways}Диаметр мм\end{sideways} &
 	\begin{sideways}Глубина метров\end{sideways} &
 	\begin{sideways}Диаметр мм\end{sideways} &
