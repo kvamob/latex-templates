@@ -63,18 +63,37 @@ top=2cm,bottom=2cm,bindingoffset=0cm]{geometry}
 \title{ПАСПОРТ РАЗВЕДОЧНО-ЭКСПЛУАТАЦИОННОЙ СКВАЖИНЫ}
 \date{\today}
 %%%======================================================================================================
-\newcommand{\txtExecutor}{ООО <<Гидросфера>>}			% Исполнитель
-\newcommand{\txtYear}{2017}			% Исполнитель
+\newcommand{\txtExecutor}{ООО <<Гидросфера>>}		% Исполнитель
+\newcommand{\txtYear}{2017}							% Год
 \newcommand{\txtNumber}{№ 1р-э}  					% Номер скважины
 \newcommand{\txtPump}{<<Напор>>}  					% Марка насоса
+\newcommand{\txtOgolovok}{+0,4}						% Высота оголовка
+
 \newcommand{\txtAddress}{Свердловская обл, г. Екатеринбург, ул. Кутузова, дом 47} 
 \newcommand{\txtHeight}{ }							% Абс. отметка устья скважины
 \newcommand{\txtCadaster}{66:41:0508041:8} 			% Кадастровый номер
 \newcommand{\txtCoords}{57,061755 59,504491}		% Координаты скважины
 \newcommand{\txtDepth}{50,0}						% Глубина скважины
 \newcommand{\txtDebit}{5,0}							% Дебит скважины
-\newcommand{\txtLevel}{5,0}							% Уровень воды в скважине%% ../ приуроченных к ...
+\newcommand{\txtDebitRel}{1,0}						% Удельный дебит (Дебит / 5)
+\newcommand{\txtLevel}{3,0}							% Уровень воды в скважине
+\newcommand{\txtLevelDyanm}{8,0}					% Динам. уровень воды в скважине (Уров + 5)
+\newcommand{\txtHorizDepth}{30,0}					% Глубина залегания водоносного горизонта
+
+
+%% ../ приуроченных к ...
 \newcommand{\txtGeology}{трещиноватым разностям палеозоя}
+%% ОБСАДКА
+\newcommand{\txtCondDiam}{160}							% Диаметр кондуктора
+\newcommand{\txtCondBtm}{3,0}							% Длина кондуктора
+\newcommand{\txtTubeDiam}{128}							% Диаметр трубы
+\newcommand{\txtTubeBtm}{30,0}							% Длина трубы
+\newcommand{\txtHoleDiam}{132}							% Диаметр открытого ствола
+\newcommand{\txtCondMaterial}{полиэтиленовая}			% п/э или стальная труба
+\newcommand{\txtTubeMaterial}{полиэтиленовая}			% п/э или стальная труба
+\newcommand{\txtPumpDepth}{20,0}						% Глубина погружения насоса
+
+
 
 %%%======================================================================================================
 
@@ -165,8 +184,8 @@ top=2cm,bottom=2cm,bindingoffset=0cm]{geometry}
 
     \bigskip
 
-	\settowidth{\ML}{<<\underline{\hspace{0.7cm}}>> \underline{\hspace{2cm}}}
-	\hfill
+%	\settowidth{\ML}{<<\underline{\hspace{0.7cm}}>> \underline{\hspace{2cm}}}
+%	\hfill
 
 	\begin{tabular}{@{}ll}
 	Бурение начато & << \underline{\hspace{0.7cm}} >> \underline{\hspace{3cm}} \txtYear \,г.\\
@@ -184,15 +203,15 @@ top=2cm,bottom=2cm,bindingoffset=0cm]{geometry}
 
 	\begin{table}[!h]\footnotesize
 	\centering
-	\begin{tabular}[c]{|p{0.7cm}|p{2cm}|p{7cm}|p{1.5cm}|p{1.5cm}|p{1cm}|}
+	\begin{tabular}{|p{0.7cm}|p{2cm}|p{7cm}|p{1.5cm}|p{1.5cm}|p{1cm}|}
 		\hline 
 		№№ п.п. & Геологи\-ческий возраст пройденных пород & Описание пройденных пород и характер водоносности & Глубина кровли, м & Глубина подошвы, м & Катего\-рия пород \\ 
 		\hline 
-		1 & Q IV а & Почвенно-растительный слой, кора выветривания & 0 & 2,0 & III\\ 
+		1 & Q IV а & Почвенно-растительный слой, кора выветривания & 0    & 2,0  & III\\ 
 		\hline 
-		2 & Mz & Cкальные грунты с прослоями суглинков & 2,0 & 25,0 & V \\ 
+		2 & Mz     & Cкальные грунты с прослоями суглинков         & 2,0  & 25,0 & V \\ 
 		\hline 
-		3 & Pz & Скальные грунты – эффузивы трещиноватые & 25,0 & 38,0 & VIII \\ 
+		3 & Pz     & Скальные грунты – эффузивы трещиноватые       & 25,0 & 38,0 & VIII \\ 
 		\hline 
 		&  &  &  &  &  \\ 
 		\hline 
@@ -203,25 +222,23 @@ top=2cm,bottom=2cm,bindingoffset=0cm]{geometry}
 	\end{tabular} 
 	\end{table}
 
-	\bigskip
-	
 	\section*{Конструкция скважины}
 
-	Высота оголовка	\underline{+0,4} м	от поверхности земли. 
+	Высота оголовка	\underline{\txtOgolovok} м	от поверхности земли. 
 	
 	\bigskip
 
 	Обсадная колонна:
 
-	диаметром \underline{160} мм от \underline{+0,4} м до \underline{10,0}  м  		
+	диаметром \underline{\txtCondDiam} мм от \underline{\txtOgolovok} м до \underline{\txtCondBtm}  м  		
 	
-	диаметром \underline{128} мм от \underline{+0,4} м до \underline{30,0} м
+	диаметром \underline{\txtTubeDiam} мм от \underline{\txtOgolovok} м до \underline{\txtTubeBtm} м
 	
 	\bigskip
 
 	Открытый ствол:
 
-	 диаметром \underline{132} мм от \underline{30,0} до \underline{38,0} м 
+	 диаметром \underline{132} мм от \underline{\txtTubeBtm} до \underline{\txtDepth} м 
     
     \bigskip
 	
@@ -229,16 +246,16 @@ top=2cm,bottom=2cm,bindingoffset=0cm]{geometry}
 	
 	\bigskip
 
-\begin{tabular}{|c|c|}
+\begin{tabular}{|c|l|}
 	\hline 
-	\rule[-1ex]{0pt}{2.5ex} №№ & Конструкция: \\ 
-	\rule[-1ex]{0pt}{2.5ex} п.п. & каркас, расположение отверстий, тип, сетка, проволока, диаметр и тд. \\ 
+	№№ & Конструкция: \\ 
+	п.п. & каркас, расположение отверстий, тип, сетка, проволока, диаметр и тд. \\ 
 	\hline 
-	\rule[-1ex]{0pt}{2.5ex} 1. & От +0,4 до 10,0 м   надфильтровая часть \diameter 160 мм полиэтиленовая труба \\ 
+	1. & От \txtOgolovok до \txtCondBtm м   надфильтровая часть \diameter \txtCondDiam мм \txtCondMaterial \,труба \\ 
 	\hline 
-	\rule[-1ex]{0pt}{2.5ex} 2. & От +0,4 до 30,0 м   надфильтровая часть \diameter 128 мм полиэтиленовая труба \\ 
+	2. & От \txtOgolovok до \txtTubeBtm м   надфильтровая часть \diameter \txtTubeDiam мм \txtTubeMaterial \,труба \\ 
 	\hline 
-	\rule[-1ex]{0pt}{2.5ex} 3. & От 30,0 до 38,0 м   открытый ствол \diameter 132 мм \\ 
+	3. & От \txtTubeBtm до \txtDepth \,м   открытый ствол \diameter 132 мм \\ 
 	\hline 
 \end{tabular} 
 
@@ -253,44 +270,44 @@ top=2cm,bottom=2cm,bindingoffset=0cm]{geometry}
 \bigskip
 
 \begin{center}
-\begin{tabular}{|l|c|}
+\begin{tabular}{|r|c|}
 	\hline 
 	Глубина в м. & \txtDepth \,м \\ 
 	\hline 
 	Бурение & Диаметром 165 мм \\ 
 %	\hline 
-	& от +0,4 до 10,0 м \\ 
+	& от 0,0 до \txtCondBtm \,м \\ 
 %	\hline 
-	& Диаметром 132 мм \\ 
+	& Диаметром \txtHoleDiam \,мм \\ 
 %	\hline 
-	& от 4,0 до 30,0 м \\ 
+	& от \txtCondBtm до \txtTubeBtm \,м \\ 
 %	\hline 
 	&  \\ 
 	\hline 
-	Конструкция & Бурение от 0,0 до 38,0 м \\ 
+	Конструкция & Бурение от 0,0 до \txtDepth \,м \\ 
 %	\hline 
-	& Обсадка от +0,4 до 30,0 м \\ 
+	& Обсадка от \txtOgolovok до \txtTubeBtm \,м \\ 
 	\hline 
-	Обсадка & Диаметром 160 мм \\ 
+	Обсадка & Диаметром \txtCondDiam \,мм \\ 
 %	\hline 
-	& от +0,4 до 10,0 м \\ 
+	& от \txtOgolovok до \txtCondBtm \,м \\ 
 %	\hline 
-	& Диаметром 128 мм  \\ 
+	& Диаметром \txtTubeDiam \,мм  \\ 
 %	\hline 
-	& От +0,4 до 38,0 м \\ 
+	& От \txtOgolovok до \txtTubeBtm \,м \\ 
 	\hline 
 \end{tabular} 
 \end{center}
 
 \bigskip
 
-Произведена затрубная гидроизоляция обсадной колонны диаметром 128 мм от башмака надфильтровой колонны глухих труб до устья скважины.
+Произведена затрубная гидроизоляция обсадной колонны диаметром \txtTubeDiam \,мм от башмака надфильтровой колонны глухих труб до устья скважины.
 
 Сооруженной скважиной вскрыты водоносные горизонты  подземных вод, приуроченные к \underline{\txtGeology}.
 
-Указанные водоносные горизонты залегают на глубине   30,0 – \txtDepth \,м.
+Указанные водоносные горизонты залегают на глубине   \txtHorizDepth \,– \txtDepth \,м.
 
-По окончании откачки уровень воды в скважине остановился на глубине  \txtLevel \, м от поверхности земли.
+По окончании откачки уровень воды в скважине остановился на глубине  \txtLevel \,м от поверхности земли.
 
 \section*{Результаты откачки}
 
@@ -307,31 +324,21 @@ top=2cm,bottom=2cm,bindingoffset=0cm]{geometry}
 	\begin{sideways}Глубина метров\end{sideways} &
 	\begin{sideways}Диаметр мм\end{sideways} &
 	\begin{sideways}Глубина метров\end{sideways} &
-	\begin{sideways}Динамичный уровень воды, м\end{sideways} &
+	\begin{sideways}Динамический уровень воды, м\end{sideways} &
 	\begin{sideways}Пониж. уровня метров\end{sideways} &
 	\begin{sideways}Дебит м3/час\end{sideways} &
 	\begin{sideways}Удельный дебит, м3/час\end{sideways} &
 	\begin{sideways}Продолж-сть откачки, час\end{sideways} &
 	\begin{sideways}Марка компрессора\end{sideways} \\ 
 	\hline 
-	57,0 & 30,0 & 32,0 & 26,0 & 10,0 & 5,0 & \txtDebit & 3,0 & 4,0 & ПКС \\ 
+	57,0 & 30,0 & 32,0 & 26,0 & \txtLevelDyanm & 5,0 & \txtDebit & \txtDebitRel & 4,0 & ПКС \\ 
 	\hline 
 \end{tabular} 
 \end{center}
 
-\bigskip
+\subsection*{Расчетные данные по результатам откачки}
 
-
-%% Повернутый текст
-%\begin{sideways} 
-%	Динамичный уровень воды, м
-%\end{sideways}
-
-% https://engraver.wordpress.com/2008/05/28/%D0%B2%D0%B5%D1%80%D1%82%D0%B8%D0%BA%D0%B0%D0%BB%D1%8C%D0%BD%D0%BE%D0%B5-%D0%B2%D1%8B%D1%80%D0%B0%D0%B2%D0%BD%D0%B8%D0%B2%D0%B0%D0%BD%D0%B8%D0%B5-%D0%B8-%D0%BE%D0%B1%D1%8A%D0%B5%D0%B4%D0%B8%D0%BD/
-
-\section*{Расчетные данные по результатам откачки}
-
-Водоносный горизонт на рассматриваемой территории залегает на глубине 	30,0 - \txtDepth	\,м, не перекрыт обсадными трубами, представлен открытым стволом, является достаточно защищенным от возможного поверхностного загрязнения.
+Водоносный горизонт на рассматриваемой территории залегает на глубине 	\txtHorizDepth - \txtDepth	\,м, не перекрыт обсадными трубами, представлен открытым стволом, является достаточно защищенным от возможного поверхностного загрязнения.
 
 Учитывая, что скважина \txtNumber \, пробурена для хозяйственно-бытового водоснабжения, организация зоны санитарной охраны на площадке скважины не требуется.
 
@@ -339,7 +346,7 @@ top=2cm,bottom=2cm,bindingoffset=0cm]{geometry}
 
 \section*{Выводы}
 
-В зависимости от фактически полученных результатов откачки и расчетных данных эксплуатация скважины рекомендуется с помощью насоса  \txtPump, при глубине погружения насоса  на \underline{20 м} от устья скважины с наиболее рациональной производительностью 	$\txtDebit \,м^3/час$ (рекомендуемой \txtExecutor, г. Екатеринбург)
+В зависимости от фактически полученных результатов откачки и расчетных данных эксплуатация скважины рекомендуется с помощью насоса  \txtPump, при глубине погружения насоса  на \underline{\txtPumpDepth} \,м от устья скважины с наиболее рациональной производительностью 	$\txtDebit \,м^3/час$ (рекомендуемой \txtExecutor, г. Екатеринбург)
 
 \bigskip
 
