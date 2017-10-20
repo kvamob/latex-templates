@@ -74,9 +74,9 @@ top=2cm,bottom=2cm,bindingoffset=0cm]{geometry}
 \newcommand{\txtCoords}{57,061755 59,504491}		% Координаты скважины
 \newcommand{\txtDepth}{50,0}						% Глубина скважины
 \newcommand{\txtDebit}{5,0}							% Дебит скважины
-%% ../ приуроченных к ...
+\newcommand{\txtLevel}{5,0}							% Уровень воды в скважине%% ../ приуроченных к ...
 \newcommand{\txtGeology}{трещиноватым разностям палеозоя}
-\newcommand{\txtLevel}{5,0}							% Уровень воды в скважине
+
 %%%======================================================================================================
 
 
@@ -92,7 +92,8 @@ top=2cm,bottom=2cm,bindingoffset=0cm]{geometry}
 		{\LARGE ПАСПОРТ РАЗВЕДОЧНО-ЭКСПЛУАТАЦИОННОЙ СКВАЖИНЫ}
 		\vspace{0.25cm}
 		
-		\underline{для хозяйственно-бытового водоснабжения}
+%		\underline{для хозяйственно-бытового водоснабжения}
+		для хозяйственно-бытового водоснабжения
 		
 		\bigskip
 		
@@ -180,10 +181,12 @@ top=2cm,bottom=2cm,bindingoffset=0cm]{geometry}
 	\bigskip
 	
 	При бурении скважины пройдены следующие горные породы:
-	
-	\begin{tabular}{|c|c|l|c|c|c|}
+
+	\begin{table}[]\footnotesize
+	\centering
+	\begin{tabular}[c]{|@{}p{1cm}|@{}p{2.5cm}|@{}p{8cm}|@{}p{1.5cm}|@{}p{1.5cm}|@{}p{1.5cm}|}
 		\hline 
-		№№ п.п. & Геологический возраст пройденных пород & Описание пройденных пород и характер водоносности & Глубина кровли & Глубина подошвы & Категория пород \\ 
+		№№ п.п. & Геологический возраст пройденных пород & Описание пройденных пород и характер водоносности & Глубина кровли, м & Глубина подошвы, м & Категория пород \\ 
 		\hline 
 		1 & Q IV а & Почвенно-растительный слой, кора выветривания & 0 & 2,0 & III\\ 
 		\hline 
@@ -198,14 +201,15 @@ top=2cm,bottom=2cm,bindingoffset=0cm]{geometry}
 		&  &  &  &  &  \\ 
 		\hline 
 	\end{tabular} 
-	
+	\end{table}
+
 	\bigskip
 	
 \begin{table}[]\footnotesize
 	\centering
 	\begin{tabular}{|c|c|l|c|c|c|}
 		\hline
-		\begin{tabular}[c]{@{}c@{}}№№ \\ п.п.\end{tabular} & \begin{tabular}[c]{@{}c@{}}Геологический возраст \\ пройденных пород\end{tabular} & \begin{tabular}[c]{@{}l@{}}Описание пройденных пород \\ и характер водоносности\end{tabular} & \begin{tabular}[c]{@{}c@{}}Глубина \\ кровли\end{tabular} & \begin{tabular}[c]{@{}c@{}}Глубина \\ подошвы\end{tabular} & \begin{tabular}[c]{@{}c@{}}Категория \\ пород\end{tabular} \\ \hline
+		\begin{tabular}[c]{@{}p{1cm}}№№ п.п.\end{tabular} & \begin{tabular}[c]{@{}c@{}}Геологический возраст пройденных пород\end{tabular} & \begin{tabular}[c]{@{}l@{}}Описание пройденных пород \\ и характер водоносности\end{tabular} & \begin{tabular}[c]{@{}c@{}}Глубина \\ кровли\end{tabular} & \begin{tabular}[c]{@{}c@{}}Глубина \\ подошвы\end{tabular} & \begin{tabular}[c]{@{}c@{}}Категория \\ пород\end{tabular} \\ \hline
 		1 & Q IV а & Почвенно-растительный слой, кора выветривания & 0 & 2,0 & III \\ \hline
 		2 & Mz & Cкальные грунты с прослоями суглинков & 2,0 & 25,0 & V \\ \hline
 		3 & Pz & Скальные грунты – эффузивы трещиноватые & 25,0 & 38,0 & VIII \\ \hline
