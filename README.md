@@ -1,6 +1,6 @@
 # latex-templates
-Шаблоны LaTEX
+Шаблоны LaTeX
 
-## bhpassport
+### bhpassport
 
 Шаблоны паспортов скважин
