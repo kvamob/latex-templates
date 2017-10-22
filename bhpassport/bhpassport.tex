@@ -93,33 +93,33 @@ top=2cm,bottom=2cm,bindingoffset=0cm]{geometry}
 \newcommand{\txtPump}{<<Напор>>}  				% Марка насоса
 \newcommand{\txtOgolovok}{+0,4}					% Высота оголовка
 
-\newcommand{\txtAddress}{Свердловская обл, г. Екатеринбург, ул. Кутузова, дом 47} 
+\newcommand{\txtAddress}{--Address--} 
 \newcommand{\txtHeight}{ }						% Абс. отметка устья скважины
-\newcommand{\txtCadaster}{66:41:0508041:8} 		% Кадастровый номер
-\newcommand{\txtCoords}{57,061755 59,504491}	% Координаты скважины
-\newcommand{\txtDepth}{50,0}					% Глубина скважины
-\newcommand{\txtDebit}{5,0}						% Дебит скважины
-\newcommand{\txtLevel}{3,0}						% Уровень воды в скважине
-\newcommand{\txtHorizDepth}{30,0}				% Глубина залегания водоносного горизонта
+\newcommand{\txtCadaster}{--Cadaster--} 		% Кадастровый номер
+\newcommand{\txtCoords}{--Lat Lon--}	% Координаты скважины
+\newcommand{\txtDepth}{,0}					% Глубина скважины
+\newcommand{\txtDebit}{,0}						% Дебит скважины
+\newcommand{\txtLevel}{,0}						% Уровень воды в скважине
+\newcommand{\txtHorizDepth}{,0}				% Глубина залегания водоносного горизонта
 
 %% ../ приуроченных к ...
 \newcommand{\txtGeology}{трещиноватым разностям палеозоя}
 %% ОБСАДКА
 \newcommand{\txtCondMaterial}{полиэтиленовая}	% п/э или стальная труба
 \newcommand{\txtCondDiam}{160}					% Диаметр кондуктора
-\newcommand{\txtCondBtm}{3,0}					% Длина кондуктора
+\newcommand{\txtCondBtm}{,0}					% Длина кондуктора
 \newcommand{\txtTubeMaterial}{полиэтиленовая}	% п/э или стальная труба
 \newcommand{\txtTubeDiam}{128}					% Диаметр трубы
-\newcommand{\txtTubeBtm}{30,0}					% Длина трубы
+\newcommand{\txtTubeBtm}{,0}					% Длина трубы
 \newcommand{\txtHoleDiam}{132}					% Диаметр открытого ствола
-\newcommand{\txtPumpDepth}{20,0}				% Глубина погружения насоса
+\newcommand{\txtPumpDepth}{,0}				% Глубина погружения насоса
 
 %% ГЕОЛОГИЧЕСКИЙ РАЗРЕЗ
 \newcommand{\txtGeological}{
 	%  N   Возр       Грунты                                       от       до    Категория
-	1 & Q IV а & Почвенно-растительный слой, кора выветривания & 0    & 2,0  & III \\  \hline
-	2 & Mz     & Cкальные грунты с прослоями суглинков         & 2,0  & 25,0 & V   \\  \hline
-	3 & Pz     & Скальные грунты – эффузивы трещиноватые       & 25,0 & 38,0 & VIII \\ \hline
+	1 & Q IV а & Почвенно-растительный слой, кора выветривания & 0    & 2,0       & III \\  \hline
+	2 & Mz     & Cкальные грунты с прослоями суглинков         & 2,0  & 25,0      & V   \\  \hline
+	3 & Pz     & Скальные грунты – эффузивы трещиноватые       & 25,0 & \txtDepth & VIII \\ \hline
 	&  &  &  &  &  \\ 	\hline 
 	&  &  &  &  &  \\ 	\hline 
 	&  &  &  &  &  \\ 	\hline 
@@ -128,13 +128,13 @@ top=2cm,bottom=2cm,bindingoffset=0cm]{geometry}
 %% Результаты откачки
 \newcommand{\txtPumpResults}{
 57,0 & 		% 
-30,0 & 		% Загружение водоподъемной трубы
+,0 & 		% Загружение водоподъемной трубы
 32,0 & 		%
-26,0 &		% Загружение воздухопроводной трубы
-8,0  & 		% Динамический уровень (Уровень + понижение)
+,0 &		% Загружение воздухопроводной трубы
+,0  & 		% Динамический уровень (Уровень + понижение)
 5,0  &		% Понижение уровня 
 \txtDebit & % Дебит
-1,0  &		% Удельный дебит
+,0  &		% Удельный дебит
 4,0  &		% 
 ПКС			% 
 }			%
@@ -251,20 +251,10 @@ top=2cm,bottom=2cm,bindingoffset=0cm]{geometry}
 		\hline 
 		№№ п.п. & Геологи\-ческий возраст пройденных пород & Описание пройденных пород и характер водоносности & Глубина кровли, м & Глубина подошвы, м & Катего\-рия пород \\ 
 		\hline 
-%		1 & Q IV а & Почвенно-растительный слой, кора выветривания & 0    & 2,0  & III \\
-%		\hline
-%		2 & Mz     & Cкальные грунты с прослоями суглинков         & 2,0  & 25,0 & V \\
-%		\hline
-%		3 & Pz     & Скальные грунты – эффузивы трещиноватые       & 25,0 & 38,0 & VIII \\
-%		\hline
-%		&  &  &  &  &  \\ 
-%		\hline 
-%		&  &  &  &  &  \\ 
-%		\hline 
-%		&  &  &  &  &  \\ 
-%		\hline 
-	\txtGeological
-	\end{tabular} 
+	
+		\txtGeological  % Геологический разрез см. в преамбуле
+	
+\end{tabular} 
 	\end{table}
 
 	\section*{Конструкция скважины}

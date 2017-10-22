@@ -8,8 +8,9 @@ import shutil
 import requests
 
 out_filename = './images/map.png'
-lat = '56.747179'   # Широта
-lon = '60.67913'    # Долгота
+coords = '56,747179 60,67913'
+
+(lat, lon) = coords.replace(',', '.').split()
 scale = 14          # Масштабирование
 
 # url = 'https://static-maps.yandex.ru/1.x/?pt={0},{1},comma&z={2}&size=600,450&l=map,skl'.format(lon, lat, scale)
