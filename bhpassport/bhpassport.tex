@@ -6,7 +6,7 @@
 
 %% Глобальные Параметры страницы
 \usepackage[left=3cm,right=2cm,
-top=2cm,bottom=2cm,bindingoffset=0cm]{geometry}
+top=1cm,bottom=2cm,bindingoffset=0cm]{geometry}
 
 \usepackage{fp} 						% Вычисления с плавающей точкой
 \usepackage{siunitx}					% При использовании пакета fp все числа должны иметь decimal delimiter точку
@@ -119,9 +119,9 @@ top=2cm,bottom=2cm,bindingoffset=0cm]{geometry}
 %% ГЕОЛОГИЧЕСКИЙ РАЗРЕЗ
 \newcommand{\txtGeological}{
 	%  N   Возр       Грунты                                       от       до    Категория
-	1 & Q IV а & Почвенно-растительный слой, кора выветривания & 0    & 2,0       & III \\  \hline
-	2 & Mz     & Cкальные грунты с прослоями суглинков         & 2,0  & 25,0      & V   \\  \hline
-	3 & Pz     & Скальные грунты – эффузивы трещиноватые       & 25,0 & \num{\txtDepth} & VIII \\ \hline
+	1. & Q IV а & Почвенно-растительный слой, кора выветривания & 0    & 2,0       & III \\  \hline
+	2. & Mz     & Cкальные грунты с прослоями суглинков         & 2,0  & 25,0      & V   \\  \hline
+	3. & Pz     & Скальные грунты – эффузивы трещиноватые       & 25,0 & \num{\txtDepth} & VIII \\ \hline
 	&  &  &  &  &  \\ 	\hline 
 	&  &  &  &  &  \\ 	\hline 
 	&  &  &  &  &  \\ 	\hline 
@@ -151,6 +151,7 @@ top=2cm,bottom=2cm,bindingoffset=0cm]{geometry}
 
 \begin{document} % конец преамбулы, начало документа
 
+\setlength{\extrarowheight}{1mm} % Дополнительный интервал между строками таблиц
 
 %% Титульная страница
 
@@ -252,18 +253,26 @@ top=2cm,bottom=2cm,bindingoffset=0cm]{geometry}
 	\pagebreak
 	
 	При бурении скважины пройдены следующие горные породы:
+%	\begin{table}[!h]\footnotesize
+%	\centering
+%	\caption{Геологический разрез по скважине}
+%	\begin{tabular}{|p{0.7cm}|p{2cm}|p{7cm}|p{1.5cm}|p{1.5cm}|p{1cm}|}
+%		\hline 
+%		№№ п.п. & Геологи\-ческий возраст пройденных пород & Описание пройденных пород и характер водоносности & Глубина кровли, м & Глубина подошвы, м & Катего\-рия пород \\ 
+%		\hline 
+%		\txtGeological  % Геологический разрез см. в преамбуле
+%	\end{tabular} 
+%	\end{table}
 
 	\begin{table}[!h]\footnotesize
 	\centering
 	\caption{Геологический разрез по скважине}
-	\begin{tabular}{|p{0.7cm}|p{2cm}|p{7cm}|p{1.5cm}|p{1.5cm}|p{1cm}|}
-		\hline 
-		№№ п.п. & Геологи\-ческий возраст пройденных пород & Описание пройденных пород и характер водоносности & Глубина кровли, м & Глубина подошвы, м & Катего\-рия пород \\ 
-		\hline 
-	
-		\txtGeological  % Геологический разрез см. в преамбуле
-	
-\end{tabular} 
+	\begin{tabulary}{\textwidth}{|C|C|L|C|C|C|}
+	\hline 
+	№№ п.п. & Геологический возраст пройденных пород & Описание пройденных пород и характер водоносности & Глубина кровли, м & Глубина подошвы, м & Категория пород \\ 
+	\hline 
+	\txtGeological  % Геологический разрез см. в преамбуле
+	\end{tabulary} 
 	\end{table}
 
 	\section*{Конструкция скважины}
@@ -288,21 +297,38 @@ top=2cm,bottom=2cm,bindingoffset=0cm]{geometry}
 	
 	Фильтровая колонна: \underline{нет}
 	
+%\begin{table}[!h]
+%\caption{Устройство скважины}
+%\centering
+%\begin{tabular}{|c|c|}
+%	\hline 
+%	№№ & Конструкция: \\ 
+%	п.п. & каркас, расположение отверстий, тип, сетка, проволока, диаметр и тд. \\ 
+%	\hline 
+%	1. & От {\txtOgolovok} до {\num{\txtCondBtm}} м   надфильтровая часть \diameter {\txtCondDiam} мм {\txtCondMaterial} труба \\ 
+%	\hline 
+%	2. & От {\txtOgolovok} до {\num{\txtTubeBtm}} м   надфильтровая часть \diameter {\txtTubeDiam} мм {\txtTubeMaterial} труба \\ 
+%	\hline 
+%	3. & От {\num{\txtTubeBtm}} до {\num{\txtDepth}} м   открытый ствол {\diameter} 132 мм \\ 
+%	\hline 
+%\end{tabular} 
+%\end{table}
+
 \begin{table}[!h]
-\caption{Устройство скважины}
-\centering
-\begin{tabular}{|c|c|}
-	\hline 
-	№№ & Конструкция: \\ 
-	п.п. & каркас, расположение отверстий, тип, сетка, проволока, диаметр и тд. \\ 
-	\hline 
-	1. & От {\txtOgolovok} до {\num{\txtCondBtm}} м   надфильтровая часть \diameter {\txtCondDiam} мм {\txtCondMaterial} труба \\ 
-	\hline 
-	2. & От {\txtOgolovok} до {\num{\txtTubeBtm}} м   надфильтровая часть \diameter {\txtTubeDiam} мм {\txtTubeMaterial} труба \\ 
-	\hline 
-	3. & От {\num{\txtTubeBtm}} до {\num{\txtDepth}} м   открытый ствол {\diameter} 132 мм \\ 
-	\hline 
-\end{tabular} 
+	\caption{Устройство скважины}
+	\centering
+	\begin{tabularx}{\textwidth}{|c|X|}
+		\hline 
+		№№ & Конструкция: \\ 
+		п.п. & каркас, расположение отверстий, тип, сетка, проволока, диаметр и тд. \\ 
+		\hline 
+		1. & От {\txtOgolovok} до {\num{\txtCondBtm}} м   надфильтровая часть \diameter {\txtCondDiam} мм {\txtCondMaterial} труба \\ 
+		\hline 
+		2. & От {\txtOgolovok} до {\num{\txtTubeBtm}} м   надфильтровая часть \diameter {\txtTubeDiam} мм {\txtTubeMaterial} труба \\ 
+		\hline 
+		3. & От {\num{\txtTubeBtm}} до {\num{\txtDepth}} м   открытый ствол {\diameter} 132 мм \\ 
+		\hline 
+	\end{tabularx} 
 \end{table}
 
 
