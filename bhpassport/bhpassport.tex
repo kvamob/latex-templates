@@ -127,7 +127,7 @@ top=2cm,bottom=2cm,bindingoffset=0cm]{geometry}
 	&  &  &  &  &  \\ 	\hline 
 }
 
-%% ВЫЧИСЛЯЕМЫЕ ПОЛЯ
+%% ВЫЧИСЛЯЕМЫЕ ПОЛЯ (Используется пакет fp)
 \FPeval\LevelDyn{round(txtLevel + 5, 1)}	% Динамический уровень воды
 \FPeval\DebitRel{round(txtDebit / 5, 2)}	% Удельный дебит
 \FPeval\DepthWT{round(txtDepth - 2 / 5, 1)}	% Загружение водоподъемной трубы
