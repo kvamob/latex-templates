@@ -8,7 +8,7 @@ import shutil
 import requests
 
 out_filename = './images/map.png'
-coords = '56,747179 60,67913'
+coords = '43.269124 6.640285'
 
 (lat, lon) = coords.replace(',', '.').split()
 scale = 14          # Масштабирование
