@@ -65,9 +65,11 @@ top=1cm,bottom=2cm,bindingoffset=0cm]{geometry}
 \usepackage{longtable}  % Длинные таблицы
 \usepackage{multirow} % Слияние строк в таблице
 
-\usepackage{caption} % подписи к рисункам в русской типографской традиции
+%%% Подписи к таблицам в русской типографской традиции
+\usepackage{caption} 
 \DeclareCaptionFormat{GOSTtable}{#2#1\\#3}
 \DeclareCaptionLabelSeparator{fill}{\hfill}
+\DeclareCaptionLabelSeparator{dot}{. }
 \DeclareCaptionLabelFormat{fullparents}{\bothIfFirst{#1}{~}#2}
 \captionsetup[table]{
 	format=GOSTtable,
@@ -80,6 +82,28 @@ top=1cm,bottom=2cm,bindingoffset=0cm]{geometry}
 	justification=centering,
 	singlelinecheck=false
 }
+\captionsetup{font=small}
+\captionsetup[figure]{
+	labelsep=dot, 
+	%	textfont=it
+}
+
+
+%%% Модификация команд, задающих разделы
+% Не подавлять отступы у первого абзаца
+
+\makeatletter   % Команда \makeatletter делает символ @ буквой, команда \makeatother возвращает всё на свои места.
+% Разрешим отступ у первого абзаца
+\renewcommand\section{\@startsection {section}{1}{\parindent}%
+	{3.5ex \@plus 1ex \@minus .2ex}{2.3ex \@plus.2ex}%
+	{\normalfont\hyphenpenalty=10000\Large\bfseries}}
+\makeatother
+
+% После номеров разделов \section ставить точки
+\usepackage{secdot}			
+% И после \subsection тоже ставить точки
+\sectiondot{subsection}		
+
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%% PAYLOAD
@@ -231,7 +255,7 @@ top=1cm,bottom=2cm,bindingoffset=0cm]{geometry}
 		\caption{Обзорная карта расположения скважины}
 	\end{figure}
 
-    \section*{Геолого-технические данные скважины}
+    \section{Геолого-технические данные скважины}
 
     Разведочно-эксплуатационная скважина сооружена \txtExecutor. Имеет общую глубину \num{\txtDepth} \,м.   Бурение производилось вращательно-роторным способом станком УРБ-2-2А.
 
@@ -275,7 +299,7 @@ top=1cm,bottom=2cm,bindingoffset=0cm]{geometry}
 	\end{tabulary} 
 	\end{table}
 
-	\section*{Конструкция скважины}
+	\section{Конструкция скважины}
 
 	Высота оголовка	\underline{\txtOgolovok} м	от поверхности земли. 
 	
@@ -372,7 +396,7 @@ top=1cm,bottom=2cm,bindingoffset=0cm]{geometry}
 
 По окончании откачки уровень воды в скважине остановился на глубине  \num{\txtLevel} \,м от поверхности земли.
 
-\section*{Результаты откачки}
+\section{Результаты откачки}
 
 \begin{table}[!h]
 	\caption{Результаты откачки}
@@ -401,7 +425,7 @@ top=1cm,bottom=2cm,bindingoffset=0cm]{geometry}
 \end{tabular} 
 \end{table}
 
-\subsection*{Расчетные данные по результатам откачки}
+\subsection{Расчетные данные по результатам откачки}
 
 Водоносный горизонт на рассматриваемой территории залегает на глубине 	{\num{\txtHorizDepth}} - {\num{\txtDepth}}	м, не перекрыт обсадными трубами, представлен открытым стволом, является достаточно защищенным от возможного поверхностного загрязнения.
 
@@ -409,7 +433,7 @@ top=1cm,bottom=2cm,bindingoffset=0cm]{geometry}
 
 В процессе постоянной эксплуатации скважины рекомендуется периодически производить химический анализ воды для контроля за ее качеством.
 
-\section*{Выводы}
+\section{Выводы}
 
 В зависимости от фактически полученных результатов откачки и расчетных данных эксплуатация скважины рекомендуется с помощью насоса  \txtPump, при глубине погружения насоса  на \underline{\num{\txtPumpDepth}} \,м от устья скважины с наиболее рациональной производительностью 	{\num{\txtDebit}} м\textsuperscript{3}/час (рекомендуемой \txtExecutor, г. Екатеринбург)
 
