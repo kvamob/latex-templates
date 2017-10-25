@@ -33442,6 +33442,143 @@
          d="M 72,0 H 0 v 57.6 h 72 z"
          inkscape:connector-curvature="0" />
     </pattern>
+    <filter
+       inkscape:menu="Fill and Transparency"
+       inkscape:menu-tooltip="Adds a white opaque background"
+       style="color-interpolation-filters:sRGB;"
+       inkscape:label="Flatten Transparency"
+       id="filter17611">
+      <feGaussianBlur
+         stdDeviation="0.01"
+         result="result1"
+         in="SourceGraphic"
+         id="feGaussianBlur17593" />
+      <feColorMatrix
+         values="1 0 0 0 0 0 1 0 0 0 0 0 1 0 0 0 0 0 50 0 "
+         result="fbSourceGraphic"
+         in="result1"
+         id="feColorMatrix17595" />
+      <feColorMatrix
+         type="saturate"
+         result="result8"
+         values="1"
+         id="feColorMatrix17597" />
+      <feComponentTransfer
+         in="result8"
+         result="result7"
+         id="feComponentTransfer17605">
+        <feFuncR
+           tableValues="0 0.2 0.4 0.6 0.8 1 1"
+           type="discrete"
+           id="feFuncR17599" />
+        <feFuncG
+           tableValues="0 0.2 0.4 0.6 0.8 1 1"
+           type="discrete"
+           id="feFuncG17601" />
+        <feFuncB
+           tableValues="0 0.2 0.4 0.6 0.8 1 1"
+           type="discrete"
+           id="feFuncB17603" />
+      </feComponentTransfer>
+      <feColorMatrix
+         values="1 0 0 0 0 0 1 0 0 0 0 0 1 0 0 -0.21 -0.72 -0.07 1 0 "
+         result="result2"
+         in="result7"
+         id="feColorMatrix17607" />
+      <feComposite
+         in2="SourceGraphic"
+         operator="in"
+         result="fbSourceGraphic"
+         in="result2"
+         id="feComposite17609" />
+      <feColorMatrix
+         result="fbSourceGraphicAlpha"
+         in="fbSourceGraphic"
+         values="0 0 0 -1 0 0 0 0 -1 0 0 0 0 -1 0 0 0 0 1 0"
+         id="feColorMatrix17613" />
+      <feComposite
+         in2="fbSourceGraphic"
+         id="feComposite17615"
+         operator="arithmetic"
+         k4="1"
+         result="result1"
+         in="fbSourceGraphic" />
+      <feMerge
+         id="feMerge17617">
+        <feMergeNode
+           id="feMergeNode17619"
+           in="result1" />
+        <feMergeNode
+           id="feMergeNode17621"
+           in="fbSourceGraphic" />
+      </feMerge>
+    </filter>
+    <filter
+       inkscape:label="Flatten Transparency"
+       inkscape:menu="Fill and Transparency"
+       inkscape:menu-tooltip="Adds a white opaque background"
+       style="color-interpolation-filters:sRGB;"
+       id="filter17631">
+      <feComposite
+         in2="SourceGraphic"
+         operator="arithmetic"
+         k4="1"
+         result="result1"
+         id="feComposite17623" />
+      <feMerge
+         id="feMerge17629">
+        <feMergeNode
+           in="result1"
+           id="feMergeNode17625" />
+        <feMergeNode
+           in="SourceGraphic"
+           id="feMergeNode17627" />
+      </feMerge>
+    </filter>
+    <filter
+       inkscape:label="Flatten Transparency"
+       inkscape:menu="Fill and Transparency"
+       inkscape:menu-tooltip="Adds a white opaque background"
+       style="color-interpolation-filters:sRGB;"
+       id="filter17641">
+      <feComposite
+         in2="SourceGraphic"
+         operator="arithmetic"
+         k4="1"
+         result="result1"
+         id="feComposite17633" />
+      <feMerge
+         id="feMerge17639">
+        <feMergeNode
+           in="result1"
+           id="feMergeNode17635" />
+        <feMergeNode
+           in="SourceGraphic"
+           id="feMergeNode17637" />
+      </feMerge>
+    </filter>
+    <filter
+       inkscape:label="Flatten Transparency"
+       inkscape:menu="Fill and Transparency"
+       inkscape:menu-tooltip="Adds a white opaque background"
+       style="color-interpolation-filters:sRGB;"
+       id="filter17651">
+      <feComposite
+         in2="SourceGraphic"
+         operator="arithmetic"
+         k4="1"
+         result="result1"
+         id="feComposite17643" />
+      <feMerge
+         id="feMerge17649">
+        <feMergeNode
+           in="result1"
+           id="feMergeNode17645" />
+        <feMergeNode
+           in="SourceGraphic"
+           id="feMergeNode17647" />
+      </feMerge>
+    </filter>
   </defs>
   <sodipodi:namedview
      id="base"
@@ -33451,7 +33588,7 @@
      inkscape:pageopacity="0.0"
      inkscape:pageshadow="2"
      inkscape:zoom="1.5326361"
-     inkscape:cx="351.02232"
+     inkscape:cx="362.44056"
      inkscape:cy="762.23194"
      inkscape:document-units="mm"
      inkscape:current-layer="layer2"
@@ -33630,35 +33767,35 @@
        inkscape:export-ydpi="300.05737" />
     <text
        xml:space="preserve"
-       style="font-style:normal;font-weight:normal;font-size:2.82222223px;line-height:1.25;font-family:sans-serif;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;stroke-width:0.26458332"
-       x="148.79825"
+       style="font-style:normal;font-weight:normal;font-size:2.82222223px;line-height:1.25;font-family:sans-serif;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;stroke-width:0.26458332;filter:url(#filter17611)"
+       x="32.09845"
        y="50.664188"
        id="text22865"
        inkscape:export-xdpi="300.05737"
        inkscape:export-ydpi="300.05737"><tspan
          sodipodi:role="line"
          id="tspan22863"
-         x="148.79825"
+         x="32.09845"
          y="50.664188"
-         style="font-size:3.52777778px;stroke-width:0.26458332;-inkscape-font-specification:'Times New Roman, ';font-family:'Times New Roman';font-weight:normal;font-style:normal;font-stretch:normal;font-variant:normal">Почва</tspan></text>
+         style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:3.52777767px;font-family:'Times New Roman';-inkscape-font-specification:'Times New Roman, ';stroke-width:0.26458332">Почва</tspan></text>
     <text
        id="text22869"
-       y="60.331627"
-       x="148.45299"
-       style="font-style:normal;font-weight:normal;font-size:2.82222223px;line-height:1.25;font-family:sans-serif;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;stroke-width:0.26458332"
+       y="63.611652"
+       x="32.443714"
+       style="font-style:normal;font-weight:normal;font-size:2.82222223px;line-height:1.25;font-family:sans-serif;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;stroke-width:0.26458332;filter:url(#filter17651)"
        xml:space="preserve"
        inkscape:export-xdpi="300.05737"
        inkscape:export-ydpi="300.05737"><tspan
-         style="font-size:3.52777778px;stroke-width:0.26458332;-inkscape-font-specification:'Times New Roman, ';font-family:'Times New Roman';font-weight:normal;font-style:normal;font-stretch:normal;font-variant:normal"
-         y="60.331627"
-         x="148.45299"
+         style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:3.52777767px;font-family:'Times New Roman';-inkscape-font-specification:'Times New Roman, ';stroke-width:0.26458332"
+         y="63.611652"
+         x="32.443714"
          id="tspan22867"
          sodipodi:role="line">Супесь</tspan></text>
     <text
        xml:space="preserve"
-       style="font-style:normal;font-weight:normal;font-size:2.82222223px;line-height:1.25;font-family:sans-serif;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;stroke-width:0.26458332"
-       x="148.60309"
-       y="76.55912"
+       style="font-style:normal;font-weight:normal;font-size:2.82222223px;line-height:1.25;font-family:sans-serif;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;stroke-width:0.26458332;filter:url(#filter17641)"
+       x="33.284348"
+       y="76.73175"
        id="text22873"
        inkscape:transform-center-x="1.7263285"
        inkscape:transform-center-y="0.3452657"
@@ -33666,29 +33803,29 @@
        inkscape:export-ydpi="300.05737"><tspan
          sodipodi:role="line"
          id="tspan22871"
-         x="148.60309"
-         y="76.55912"
-         style="font-size:3.52777778px;stroke-width:0.26458332;-inkscape-font-specification:'Times New Roman, ';font-family:'Times New Roman';font-weight:normal;font-style:normal;font-stretch:normal;font-variant:normal">Глина (водоупор)</tspan></text>
+         x="33.284348"
+         y="76.73175"
+         style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:3.52777767px;font-family:'Times New Roman';-inkscape-font-specification:'Times New Roman, ';stroke-width:0.26458332">Глина (водоупор)</tspan></text>
     <text
        inkscape:transform-center-y="0.3452657"
        inkscape:transform-center-x="1.7263285"
        id="text22877"
-       y="102.79932"
-       x="148.60309"
-       style="font-style:normal;font-weight:normal;font-size:2.82222223px;line-height:1.25;font-family:sans-serif;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;stroke-width:0.26458332"
+       y="106.07934"
+       x="32.593815"
+       style="font-style:normal;font-weight:normal;font-size:2.82222223px;line-height:1.25;font-family:sans-serif;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;stroke-width:0.26458332;filter:url(#filter17631)"
        xml:space="preserve"
        inkscape:export-xdpi="300.05737"
        inkscape:export-ydpi="300.05737"><tspan
-         style="font-size:3.52777778px;stroke-width:0.26458332;-inkscape-font-specification:'Times New Roman, ';font-family:'Times New Roman';font-weight:normal;font-style:normal;font-stretch:normal;font-variant:normal"
-         y="102.79932"
-         x="148.60309"
+         style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:3.52777767px;font-family:'Times New Roman';-inkscape-font-specification:'Times New Roman, ';stroke-width:0.26458332"
+         y="106.07934"
+         x="32.593815"
          id="tspan22875"
          sodipodi:role="line">Скальный грунт</tspan></text>
     <text
        xml:space="preserve"
        style="font-style:normal;font-weight:normal;font-size:2.82222223px;line-height:1.25;font-family:sans-serif;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;stroke-width:0.26458332"
-       x="93.015312"
-       y="39.788326"
+       x="92.670044"
+       y="39.960957"
        id="text22881"
        inkscape:transform-center-x="1.7263285"
        inkscape:transform-center-y="0.3452657"
@@ -33696,9 +33833,9 @@
        inkscape:export-ydpi="300.05737"><tspan
          sodipodi:role="line"
          id="tspan22879"
-         x="93.015312"
-         y="39.788326"
-         style="font-size:3.52777778px;stroke-width:0.26458332;-inkscape-font-specification:'Times New Roman, ';font-family:'Times New Roman';font-weight:normal;font-style:normal;font-stretch:normal;font-variant:normal">Скважина с щебнем</tspan></text>
+         x="92.670044"
+         y="39.960957"
+         style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:3.52777767px;font-family:'Times New Roman';-inkscape-font-specification:'Times New Roman, ';fill:#000000;fill-opacity:1;stroke-width:0.26458332">Скважина с щебнем</tspan></text>
     <path
        style="fill:none;stroke:#000000;stroke-width:0.26458332px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
        d="m 86.143792,47.372894 c 6.387415,-6.560048 6.387415,-6.560048 6.387415,-6.560048"
@@ -33725,7 +33862,7 @@
        xml:space="preserve"
        inkscape:export-xdpi="300.05737"
        inkscape:export-ydpi="300.05737"><tspan
-         style="font-size:3.52777778px;stroke-width:0.26458332;-inkscape-font-specification:'Times New Roman, ';font-family:'Times New Roman';font-weight:normal;font-style:normal;font-stretch:normal;font-variant:normal"
+         style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:3.52777767px;font-family:'Times New Roman';-inkscape-font-specification:'Times New Roman, ';stroke-width:0.26458332"
          y="135.25429"
          x="44.160213"
          id="tspan22887"
