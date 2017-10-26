@@ -65,7 +65,7 @@ top=1cm,bottom=2cm,bindingoffset=0cm]{geometry}
 \usepackage{longtable}  % Длинные таблицы
 \usepackage{multirow} % Слияние строк в таблице
 
-%%% Подписи к таблицам в русской типографской традиции
+%%% Подписи к рисункам и таблицам в русской типографской традиции
 \usepackage{caption} 
 \DeclareCaptionFormat{GOSTtable}{#2#1\\#3}
 \DeclareCaptionLabelSeparator{fill}{\hfill}
@@ -77,7 +77,7 @@ top=1cm,bottom=2cm,bindingoffset=0cm]{geometry}
 	labelformat=fullparents,
 	labelsep=fill,
 	labelfont=rm,
-%	labelfont=it,
+	%	labelfont=it,
 	textfont=bf,
 	justification=centering,
 	singlelinecheck=false
@@ -87,6 +87,8 @@ top=1cm,bottom=2cm,bindingoffset=0cm]{geometry}
 	labelsep=dot, 
 	%	textfont=it
 }
+% А можно и так
+%\captionsetup{labelsep=period}
 
 
 %%% Модификация команд, задающих разделы
