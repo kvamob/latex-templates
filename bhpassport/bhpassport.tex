@@ -122,16 +122,16 @@ top=1cm,bottom=2cm,bindingoffset=0cm]{geometry}
 \newcommand{\txtPump}{<<Напор>>}  				% Марка насоса
 \newcommand{\txtOgolovok}{+0,4}					% Высота оголовка
 
-\newcommand{\txtAddress}{--Address--} 
-\newcommand{\txtHeight}{ }						% Абс. отметка устья скважины
-\newcommand{\txtCadaster}{--Cadaster--} 		% Кадастровый номер
-\newcommand{\txtCoords}{--Lat Lon--}	% Координаты скважины
+\newcommand{\txtAddress}{--Address--} 		% Адрес
+\newcommand{\txtHeight}{ }					% Абс. отметка устья скважины
+\newcommand{\txtCadaster}{--Cadaster--} 	% Кадастровый номер
+\newcommand{\txtCoords}{--Lat Lon--}  		% Координаты скважины
 \newcommand{\txtDepth}{0.0}					% Глубина скважины
 \newcommand{\txtDebit}{0.0}					% Дебит скважины
 \newcommand{\txtLevel}{0.0}					% Уровень воды в скважине
-\newcommand{\txtHorizDepth}{0.0}				% Глубина залегания водоносного горизонта
+\newcommand{\txtHorizDepth}{0.0}			% Глубина залегания водоносного горизонта
 %% ../ приуроченных к ...
-\newcommand{\txtGeology}{трещиноватым разностям палеозоя}
+\newcommand{\txtGeology}{трещиноватым разностям палеозоя}  %%% ПРИУРОЧЕННЫХ К ...
 %% ОБСАДКА
 \newcommand{\txtCondMaterial}{полиэтиленовая}	% п/э или стальная труба
 \newcommand{\txtCondDiam}{160}					% Диаметр кондуктора
@@ -145,8 +145,8 @@ top=1cm,bottom=2cm,bindingoffset=0cm]{geometry}
 %% ГЕОЛОГИЧЕСКИЙ РАЗРЕЗ
 \newcommand{\txtGeological}{
 	%  N   Возр       Грунты                                       от       до    Категория
-	1. & Q IV а & Почвенно-растительный слой, кора выветривания & 0    & 2,0       & III \\  \hline
-	2. & Mz     & Cкальные грунты с прослоями суглинков         & 2,0  & 25,0      & V   \\  \hline
+	1. & Q IV а & Почвенно-растительный слой, кора выветривания & 0    & 0,5       & III \\  \hline
+	2. & Mz     & Кора выветривания - суглинки                  & 0,5  & 25,0      & V   \\  \hline
 	3. & Pz     & Скальные грунты – эффузивы трещиноватые       & 25,0 & \num{\txtDepth} & VIII \\ \hline
 	&  &  &  &  &  \\ 	\hline 
 	&  &  &  &  &  \\ 	\hline 
