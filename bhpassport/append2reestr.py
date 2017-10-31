@@ -9,3 +9,14 @@ if re.findall(r'.*\newcommand{\txtDepth}', s):
 else:
     print('Не найден')
 
+'''
+Clipboard
+
+To use native Python directories, use:
+
+import subprocess
+
+def copy2clip(txt):
+   cmd='echo '+txt.strip()+'|clip'
+   return subprocess.check_call(cmd, shell=True)
+'''
