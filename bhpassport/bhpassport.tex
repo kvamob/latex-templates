@@ -12,6 +12,8 @@ top=1cm,bottom=2cm,bindingoffset=0cm]{geometry}
 \usepackage{siunitx}					% При использовании пакета fp все числа должны иметь decimal delimiter точку
 \sisetup{output-decimal-marker={,}}		% Числа выводятся с запятой в качестве разделителя разрядов: \num{3.2} выводит 3,2 
 
+\usepackage{etoolbox} 					% логические операторы
+
 %%% Сменим шрифт
 %\renewcommand{\rmdefault}{ptm}
 %\renewcommand{\rmdefault}{cmss}
@@ -116,15 +118,18 @@ top=1cm,bottom=2cm,bindingoffset=0cm]{geometry}
 \title{ПАСПОРТ РАЗВЕДОЧНО-ЭКСПЛУАТАЦИОННОЙ СКВАЖИНЫ}
 \date{\today}
 %%%======================================================================================================
+\newbool{ShowCadaster}					% Если true, то показывать кадастровый номер
+
 \newcommand{\txtExecutor}{ООО <<Гидросфера>>}	% Исполнитель
 \newcommand{\txtYear}{2017}						% Год
 \newcommand{\txtNumber}{№ 1р-э}  				% Номер скважины
 \newcommand{\txtPump}{<<Напор>>}  				% Марка насоса
 \newcommand{\txtOgolovok}{+0,4}					% Высота оголовка
-
+%
 \newcommand{\txtAddress}{--Address--} 		% Адрес
-\newcommand{\txtHeight}{ }					% Абс. отметка устья скважины
+\newcommand{\txtHeight}{}					% Абс. отметка устья скважины
 \newcommand{\txtCadaster}{--Cadaster--} 	% Кадастровый номер
+\booltrue{ShowCadaster}						% Показывать кадастр.номер, иначе закомментировать эту строку
 \newcommand{\txtCoords}{000,000 000,000}	% Координаты скважины
 \newcommand{\txtDepth}{0.0}					% Глубина скважины
 \newcommand{\txtDebit}{0.0}					% Дебит скважины
@@ -146,11 +151,11 @@ top=1cm,bottom=2cm,bindingoffset=0cm]{geometry}
 \newcommand{\txtGeological}{
 	%  N   Возр       Грунты                                       от       до    Категория
 	1. & Q IV а & Почвенно-растительный слой, кора выветривания & 0    & 0,5       & III \\  \hline
-	2. & Mz     & Кора выветривания - суглинки                  & 0,5  & 25,0      & V   \\  \hline
-	3. & Pz     & Скальные грунты – эффузивы трещиноватые       & 25,0 & \num{\txtDepth} & VIII \\ \hline
-	&  &  &  &  &  \\ 	\hline 
-	&  &  &  &  &  \\ 	\hline 
-	&  &  &  &  &  \\ 	\hline 
+	2. & Mz     & Кора выветривания - суглинки                  & 0,5  & 10,0      & V   \\  \hline
+	3. & Pz     & Скальные грунты  трещиноватые                 & 10,0 & \num{\txtDepth} & VIII \\ \hline
+%	&  &  &  &  &  \\ 	\hline 
+%	&  &  &  &  &  \\ 	\hline 
+%	&  &  &  &  &  \\ 	\hline 
 }
 
 %% ВЫЧИСЛЯЕМЫЕ ПОЛЯ (Используется пакет fp)
@@ -198,7 +203,9 @@ top=1cm,bottom=2cm,bindingoffset=0cm]{geometry}
 		\underline{\txtAddress}
 		
 		\bigskip
-		Кадастровый номер \txtCadaster
+		\ifbool{ShowCadaster}{Кадастровый номер \txtCadaster}{}
+%		\ifblank{\txtCadaster}{}{Кадастровый номер \txtCadaster}
+
 		
 		\vfill
 	
@@ -245,11 +252,12 @@ top=1cm,bottom=2cm,bindingoffset=0cm]{geometry}
 
 	\bigskip
 
-	Кадастровый номер: \txtCadaster
+	\ifbool{ShowCadaster}{Кадастровый номер: \txtCadaster}{}
+%	\ifblank{ShowCadaster}{}{Кадастровый номер: \txtCadaster}
 
 	Координаты скважины: \txtCoords
 	
-	Абсолютная отметка устья скважины: \txtHeight
+	\ifblank{\txtHeight}{}{Абсолютная отметка устья скважины: \txtHeight}
 
 	\begin{figure}[h]
 		\fbox{\includegraphics[width=\textwidth]{map.png}}
