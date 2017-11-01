@@ -12,6 +12,7 @@ mkdir %DST_DIR%
 mkdir %DST_DIR%\images
 
 copy %SRC_DIR%\*.tex %DST_DIR% > nul
+copy %SRC_DIR%\*.py %DST_DIR% > nul
 copy %SRC_DIR%\images\* %DST_DIR%\images > nul
 
 echo Source directory : %SRC_DIR%
