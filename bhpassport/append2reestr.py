@@ -4,6 +4,8 @@
 import re
 import subprocess
 import os
+import datetime
+
 
 FILENAME = 'bhpassport.tex'             # Имя TeX - файла с паспортом скважины
 
@@ -57,9 +59,11 @@ print('Cadaster : {}'.format(Cadaster))
 print('Address  : {}'.format(Address))
 
 full_path = '{}\{}'.format(os.getcwd(), FILENAME)
+now = datetime.datetime.now()
+curr_date = '{:02d}.{:02d}.{}'.format(now.day, now.month, now.year)
 
 res = '0\t{}\t{}\t{}\t{}\t{}\t{}\t{}\t{}\t{}\t{}'.format(
-    'Date', Address, Address, Cadaster, lat, lon, 0, Depth, Debit, full_path)
+    curr_date, Address, Address, Cadaster, lat, lon, 0, Depth, Debit, full_path)
 
 print(res)
 copy2clip(res)
