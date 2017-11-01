@@ -29,6 +29,8 @@ top=1cm,bottom=2cm,bindingoffset=0cm]{geometry}
 %%% 
 \usepackage{rotating}				% Поворот текста
 
+\usepackage{fancyhdr}				% Работа с колонтитулами
+
 %%% Дополнительная работа с математикой
 \usepackage{amsmath,amsfonts,amssymb,amsthm,mathtools} % AMS
 \usepackage{icomma} % "Умная" запятая: $0,2$ --- число, $0, 2$ --- перечисление
@@ -233,6 +235,11 @@ top=1cm,bottom=2cm,bindingoffset=0cm]{geometry}
 	\end{titlepage}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%\pagestyle{fancy} % применим колонтитул
+%\fancyhead{} % очистим хидер на всякий случай
+%\fancyhead[LE,RO]{\thepage} % номер страницы слева сверху на четных и справа на нечетных
+%\lhead{\text{Паспорт скважины}}
+%\fancyfoot{} % футер будет пустой
 
 	\begin{center}
 		\textbf{ПАСПОРТ}
