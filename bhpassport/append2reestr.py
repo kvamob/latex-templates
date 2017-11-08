@@ -62,6 +62,10 @@ full_path = '{}\{}'.format(os.getcwd(), FILENAME)
 now = datetime.datetime.now()
 curr_date = '{:02d}.{:02d}.{}'.format(now.day, now.month, now.year)
 
+# Заменим символы << и >> на кавычки
+Address = Address.replace('<<', '"')
+Address = Address.replace('>>', '"')
+
 res = '0\t{}\t{}\t{}\t{}\t{}\t{}\t{}\t{}\t{}\t{}'.format(
     curr_date, Address, Address, Cadaster, lat, lon, 0, Depth, Debit, full_path)
 
