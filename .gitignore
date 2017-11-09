@@ -3,5 +3,6 @@
 *.pdf
 *.gz
 *.out
+*.toc
 .idea
 
