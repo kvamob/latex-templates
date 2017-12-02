@@ -125,7 +125,7 @@
 \usepackage{multicol} % Несколько колонок
 
 \usepackage{fancyhdr} % Колонтитулы
-%\pagestyle{fancy}
+\pagestyle{fancy}
 %\renewcommand{\headrulewidth}{0mm}  % Толщина линейки, отчеркивающей верхний колонтитул
 %\lfoot{Нижний левый}
 %\rfoot{Нижний правый}
@@ -133,3 +133,9 @@
 %\chead{Верхний в центре}
 %\lhead{Верхний левый}
 % \cfoot{Нижний в центре} % По умолчанию здесь номер страницы
+%
+% Нумерация страниц внизу справа
+\fancyhf{}
+\fancyfoot[R]{\thepage}		
+\renewcommand{\headrulewidth}{0pt}
+\renewcommand{\footrulewidth}{0pt}
