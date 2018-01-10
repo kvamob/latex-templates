@@ -2,7 +2,7 @@
 
 chcp 1251 > nul
 SET SRC_DIR="D:\GIT-REPOS\latex-templates\bhpassport"
-SET DST_DIR="D:\Home System\ИЗЫСКАНИЯ\Паспорта скважин\2017\_Паспорт_"
+SET DST_DIR="D:\Home System\ИЗЫСКАНИЯ\Паспорта скважин\2018\_Паспорт_"
 chcp 866 > nul
 
 cls
