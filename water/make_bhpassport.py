@@ -8,18 +8,19 @@ import shutil
 import os
 import sys
 import webbrowser
+import locale
+import codecs
+from collections import namedtuple
 from jinja2 import Template
 
 
-BHPASSPORTS_PATH = 'D:\Home System\ИЗЫСКАНИЯ\Паспорта скважин\2018'  # Путь к папке с отчетами по изысканиям
+BHPASSPORTS_PATH = 'D:\Home System\ИЗЫСКАНИЯ\Паспорта скважин\2018'  # Путь к корневой папке с паспортами скважин
 TEX_REPORT_FILE = 'water.tex'                                        # Имя TeX файла - отчета по изысканиям
 
 
-
-def modify_tex_file(filename, address, cadaster, nomenclature, coords):
+def modify_tex_file(filename, address, cadaster, coords):
     """
-        Заменим поля адреса участка, кадастрового номера и номенклатуры в шаблонном tex-файле на
-        реальные
+        Заменим поля адреса участка, кадастрового номера и координат в шаблонном tex-файле на реальные
         Используется шаблонизатор Jinja2
     """
 
@@ -30,7 +31,6 @@ def modify_tex_file(filename, address, cadaster, nomenclature, coords):
     data = {
         'ADDRESS': '{' + address + '}',
         'CADASTER': '{' + cadaster + '}',
-        'NOMENCLATURE': '{' + nomenclature + '}',
         'COORDINATES': '{' + coords + '}',
     }
 
@@ -53,20 +53,7 @@ def modify_tex_file(filename, address, cadaster, nomenclature, coords):
     return
 
 
-def make_ozi_file(filename, content):
-    """
-    Запишем координаты в файл Ozi Explorer Waypoints
-    filename - полный путь к файлу
-    """
-    try:
-        with open(filename, 'w') as out_file:
-            out_file.write(content)
-            print('>>> Создаем файл Ozi Waypoints ', filename)
-    except IOError as e:
-        print('*** Ошибка записи в файл {0}: {1} '.format(filename, e), file=sys.stderr)
-
-
-def gen_report_folder(addr):
+def gen_bhpassport_folder(addr):
     """
     # Сгенерировать имя папки по шаблону: Адрес Месяц Год
     addr - адрес
@@ -76,7 +63,7 @@ def gen_report_folder(addr):
     return '{0} {1}'.format(addr.replace('\"', ''), datetime.now().strftime('%B %Y'))
 
 
-def copy_report_folder(src, dst):
+def copy_bhpassport_folder(src, dst):
     """
     # Копируем папку с шаблоном отчета в папку с изысканиями
     src - полный путь к папке с шаблонами отчета
@@ -96,23 +83,24 @@ def copy_report_folder(src, dst):
 #                                                    M A I N
 #
 #######################################################################################################################
+
+
 if __name__ == '__main__':
 
-# Запишем координаты в файл Ozi Explorer Waypoints
-    make_ozi_file(settings.OZI_WAYPOINTS_FILE, area.ozi_info)
-
     locale.setlocale(locale.LC_ALL, "")  # Чтобы дата и время выдавались в текущей локали
+
+    area = parse_report()  # получим именованный кортеж area
 
     address = area.address
     nomenclature = area.nomenclature
     coords = area.coords
 
-    dst_folder = gen_report_folder(area.address)
+    dst_folder = gen_bhpassport_folder(area.address)
 
-    # Копируем папку с шаблоном отчета в папку с изысканиями
-    dst_path = os.path.join(settings.REPORTS_PATH, dst_folder)
-    # print('>>> Копируем шаблон отчета в папку', dst_path)
-    err = copy_report_folder(settings.TEX_TEMPLATE_PATH, dst_path)
+    # Копируем папку с шаблоном паспорта скважины в папку с изысканиями
+    dst_path = os.path.join(BHPASSPORTS_PATH, dst_folder)
+    # print('>>> Копируем шаблон шаблоном паспорта скважины в папку', dst_path)
+    err = copy_bhpassport_folder(BHPASSPORTS_PATH, dst_path)
     if err:
         print(err, file=sys.stderr)
         exit(-1)
@@ -121,7 +109,7 @@ if __name__ == '__main__':
 
     # Заменим в файле шаблона water.tex адрес, кад. номер и номенклатуру на реальные
     filename = os.path.join(dst_path, settings.TEX_TEMPLATE_FILE)
-    modify_tex_file(filename, address, cadaster, nomenclature, coords)
+    modify_tex_file(filename, address, cadaster, coords)
 
     # Откроем проводник в папке назначения
     webbrowser.open(dst_path)
