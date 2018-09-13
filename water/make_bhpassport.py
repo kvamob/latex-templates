@@ -10,12 +10,16 @@ import sys
 import webbrowser
 import locale
 import codecs
+import re
 from collections import namedtuple
 from jinja2 import Template
 
 
-BHPASSPORTS_PATH = 'D:\Home System\ИЗЫСКАНИЯ\Паспорта скважин\2018'  # Путь к корневой папке с паспортами скважин
-TEX_REPORT_FILE = 'water.tex'                                        # Имя TeX файла - отчета по изысканиям
+BHPASSPORTS_PATH = 'D:\\Home System\\ИЗЫСКАНИЯ\\Паспорта скважин\\2018'  # Путь к корневой папке с паспортами скважин
+BHTEMPLATES_PATH = 'D:\\GIT-REPOS\\latex-templates\\bhpassport'          # Путь к папке с шаблонами паспортов скважин
+TEX_TEMPLATE_FILE = 'bhpassport.tex'                                     # Имя файла с шаблоном паспорта скважины
+#TEX_REPORT_FILE = 'water.tex'                                        # Имя TeX файла - отчета по изысканиям
+TEX_REPORT_FILE = 'water_test.tex'                                       # Имя TeX файла - отчета по изысканиям
 
 
 def modify_tex_file(filename, address, cadaster, coords):
@@ -53,30 +57,65 @@ def modify_tex_file(filename, address, cadaster, coords):
     return
 
 
-def gen_bhpassport_folder(addr):
+def gen_bhpassport_folder():
     """
-    # Сгенерировать имя папки по шаблону: Адрес Месяц Год
-    addr - адрес
+    # Сгенерировать имя выходной папки по шаблону: <Путь к папке с паспортами>\Паспорт <Имя папки с отчетом по воде>
     Возвращает сгенерированную строку
     """
-    locale.setlocale(locale.LC_ALL, "")  # Чтобы дата и время выдавались в текущей локали
-    return '{0} {1}'.format(addr.replace('\"', ''), datetime.now().strftime('%B %Y'))
+    curr_folder = os.path.basename(os.getcwd())
+    dst_folder = 'Паспорт ' + curr_folder
+    dst_path = os.path.join(BHPASSPORTS_PATH, dst_folder)
+    return dst_path
 
 
 def copy_bhpassport_folder(src, dst):
     """
-    # Копируем папку с шаблоном отчета в папку с изысканиями
-    src - полный путь к папке с шаблонами отчета
-    dst - полный путь к папке c отчетами по изысканиям
+    # Копируем папку с шаблоном паспорта скважины в папку с изысканиями
+    src - полный путь к папке с шаблонами паспортов
+    dst - полный путь к папке паспортов скважин
     """
     retval = ''
     try:
-        print('>>> Копируем шаблон отчета в папку: {0}'.format(dst))
+        print('>>> Копируем шаблон паспорта в папку: {0}'.format(dst))
         shutil.copytree(src, dst)
         print('>>> Шаблон скопирован.')
     except IOError as e:
         retval = '*** Ошибка копирования: {0}'.format(e)
     return retval
+
+
+def parse_report(filename):
+    """
+    Считывает поля из файла filename. Это Tex-файл с отчетом по изысканиям
+    Возвращает именованный кортеж, содержащий считанные параметры
+    :param filename:
+    :return:
+    """
+    Result = namedtuple('Result', 'errmsg address coords cadaster')
+    Result.errmsg = ''
+
+    pattern1 = re.compile('{(\d*.\d*)}')  # Шаблон 1
+    pattern2 = re.compile('.*{.*}{(.*)}')  # Шаблон 2
+
+    with open(filename, encoding='utf-8') as file:
+        content = file.readlines()
+
+    for line in content:
+        # Coordinates
+        if re.search(r'.*\\newcommand{\\txtCoords}', line):
+            # print(line.strip())
+            Result.coords = pattern2.findall(line)[0]
+        # Сadaster
+        if re.search(r'.*\\newcommand{\\txtCadaster}', line):
+            # print(line.strip())
+            Result.cadaster = pattern2.findall(line)[0]
+        # Address
+        if re.search(r'.*\\newcommand{\\txtAddress}', line):
+            # print(line.strip())
+            Result.address = pattern2.findall(line)[0]
+
+    return Result
+
 
 #######################################################################################################################
 #
@@ -89,27 +128,28 @@ if __name__ == '__main__':
 
     locale.setlocale(locale.LC_ALL, "")  # Чтобы дата и время выдавались в текущей локали
 
-    area = parse_report()  # получим именованный кортеж area
+    area = parse_report(TEX_REPORT_FILE)  # получим именованный кортеж area
 
     address = area.address
-    nomenclature = area.nomenclature
+    cadaster = area.cadaster
     coords = area.coords
 
-    dst_folder = gen_bhpassport_folder(area.address)
-
     # Копируем папку с шаблоном паспорта скважины в папку с изысканиями
-    dst_path = os.path.join(BHPASSPORTS_PATH, dst_folder)
-    # print('>>> Копируем шаблон шаблоном паспорта скважины в папку', dst_path)
-    err = copy_bhpassport_folder(BHPASSPORTS_PATH, dst_path)
+    dst_path = gen_bhpassport_folder()
+    # dst_path = os.path.join(BHPASSPORTS_PATH, dst_folder)
+    # print('>>> Копируем шаблон паспорта скважины в папку', dst_path)
+    err = copy_bhpassport_folder(BHTEMPLATES_PATH, dst_path)
     if err:
         print(err, file=sys.stderr)
         exit(-1)
     else:
         print('>>> Шаблон скопирован')
 
-    # Заменим в файле шаблона water.tex адрес, кад. номер и номенклатуру на реальные
-    filename = os.path.join(dst_path, settings.TEX_TEMPLATE_FILE)
+    # Заменим в файле шаблона bhpassport.tex адрес, кад. номер и номенклатуру на реальные
+    filename = os.path.join(dst_path, TEX_TEMPLATE_FILE)
     modify_tex_file(filename, address, cadaster, coords)
+
+    # TODO Скопировать еще файл карты
 
     # Откроем проводник в папке назначения
     webbrowser.open(dst_path)
