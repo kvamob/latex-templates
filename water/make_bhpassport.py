@@ -18,8 +18,10 @@ from jinja2 import Template
 BHPASSPORTS_PATH = 'D:\\Home System\\ИЗЫСКАНИЯ\\Паспорта скважин\\2018'  # Путь к корневой папке с паспортами скважин
 BHTEMPLATES_PATH = 'D:\\GIT-REPOS\\latex-templates\\bhpassport'          # Путь к папке с шаблонами паспортов скважин
 TEX_TEMPLATE_FILE = 'bhpassport.tex'                                     # Имя файла с шаблоном паспорта скважины
-#TEX_REPORT_FILE = 'water.tex'                                        # Имя TeX файла - отчета по изысканиям
-TEX_REPORT_FILE = 'water_test.tex'                                       # Имя TeX файла - отчета по изысканиям
+TEX_REPORT_FILE = 'water.tex'                                        # Имя TeX файла - отчета по изысканиям
+# TEX_REPORT_FILE = 'water_test.tex'                                       # Имя TeX файла - отчета по изысканиям
+MAP_FILE = 'map.png'                                                     # Файл с обзорной картой
+# MAP_FILE = 'map_test.png'                                                     # Файл с обзорной картой
 
 
 def modify_tex_file(filename, address, cadaster, coords):
@@ -72,13 +74,29 @@ def copy_bhpassport_folder(src, dst):
     """
     # Копируем папку с шаблоном паспорта скважины в папку с изысканиями
     src - полный путь к папке с шаблонами паспортов
-    dst - полный путь к папке паспортов скважин
+    dst - полный путь к папке паспортами скважин
     """
     retval = ''
     try:
         print('>>> Копируем шаблон паспорта в папку: {0}'.format(dst))
         shutil.copytree(src, dst)
         print('>>> Шаблон скопирован.')
+    except IOError as e:
+        retval = '*** Ошибка копирования: {0}'.format(e)
+    return retval
+
+
+def copy_map_file(src, dst):
+    """
+    # Копируем файл карты из отчета в паспорт скважины
+    src - полный путь к файлу с картой в папке c отчетом
+    dst - полный путь к файлу в папке паспортами скважин
+    """
+    retval = ''
+    try:
+        print('>>> Копируем обзорную карту в папку: {0}'.format(dst))
+        shutil.copyfile(src, dst)
+        print('>>> Файл с картой скопирован.')
     except IOError as e:
         retval = '*** Ошибка копирования: {0}'.format(e)
     return retval
@@ -142,14 +160,17 @@ if __name__ == '__main__':
     if err:
         print(err, file=sys.stderr)
         exit(-1)
-    else:
-        print('>>> Шаблон скопирован')
+    # else:
+    #     print('>>> Шаблон скопирован')
 
     # Заменим в файле шаблона bhpassport.tex адрес, кад. номер и номенклатуру на реальные
     filename = os.path.join(dst_path, TEX_TEMPLATE_FILE)
     modify_tex_file(filename, address, cadaster, coords)
 
-    # TODO Скопировать еще файл карты
+    # Копируем обзорную карту из папки с отчетом в папку с паспортом скважины
+    src_map_path = os.path.join(os.path.curdir, 'images', MAP_FILE)
+    dst_map_path = os.path.join(dst_path, 'images', 'map.png')
+    copy_map_file(src_map_path, dst_map_path)
 
     # Откроем проводник в папке назначения
     webbrowser.open(dst_path)
