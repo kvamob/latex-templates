@@ -169,7 +169,7 @@ if __name__ == '__main__':
 
     # Копируем обзорную карту из папки с отчетом в папку с паспортом скважины
     src_map_path = os.path.join(os.path.curdir, 'images', MAP_FILE)
-    dst_map_path = os.path.join(dst_path, 'images', 'map.png')
+    dst_map_path = os.path.join(dst_path, 'images', MAP_FILE)
     copy_map_file(src_map_path, dst_map_path)
 
     # Откроем проводник в папке назначения
