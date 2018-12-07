@@ -8,10 +8,11 @@ import datetime
 
 
 FILENAME = 'bhpassport.tex'             # Имя TeX - файла с паспортом скважины
+REESTR_FILE_NAME = 'D:\\SkyDrive\\_Реестр скважин\\Реестр скважин.xlsx'
 
 # s = '\newcommand{\txtDepth}{12.0}  % Глубина скважины'
-pattern1 = re.compile('{(\d*.\d*)}')     # Шаблон 1
-pattern2 = re.compile('.*{.*}{(.*)}')   # Шаблон 2
+pattern1 = re.compile(r'{(\d*.\d*)}')     # Шаблон 1
+pattern2 = re.compile(r'.*{.*}{(.*)}')   # Шаблон 2
 
 
 # Копирует строку txt в буфер обмена (работает в Windows)
@@ -73,3 +74,5 @@ print(res)
 copy2clip(res)
 print('\n Результат скопирован в буфер обмена ')
 
+# Запустим Excel и откроем файл с реестром скважин
+subprocess.call(REESTR_FILE_NAME, shell=True)
