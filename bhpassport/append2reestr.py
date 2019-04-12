@@ -8,9 +8,13 @@ import datetime
 
 
 FILENAME = 'bhpassport.tex'             # Имя TeX - файла с паспортом скважины
+
 REESTR_FILE_NAME = 'D:\\OneDrive\\_Реестр скважин\\Реестр скважин.xlsx'
 
-# s = '\newcommand{\txtDepth}{12.0}  % Глубина скважины'
+if not os.path.exists(REESTR_FILE_NAME):
+    REESTR_FILE_NAME = 'D:\\SkyDrive\\_Реестр скважин\\Реестр скважин.xlsx'
+
+
 pattern1 = re.compile(r'{(\d*.\d*)}')     # Шаблон 1
 pattern2 = re.compile(r'.*{.*}{(.*)}')   # Шаблон 2
 
