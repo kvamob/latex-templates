@@ -23,6 +23,7 @@
 \newcommand{\txtCadaster}{{ CADASTER }} 	% Кадастровый номер
 \booltrue{ShowCadaster}						% Показывать кадастр.номер, иначе закомментировать эту строку
 \newcommand{\txtCoords}{{ COORDINATES }}	% Координаты скважины в формате 000,000 000,000
+\newcommand{\txtPhoneNumber}{{ PHONE }}		% Номер телефона
 \newcommand{\txtDepth}{0.0}					% Глубина скважины
 \newcommand{\txtDebit}{0.0}					% Дебит скважины
 \newcommand{\txtLevel}{0.0}					% Уровень воды в скважине
@@ -98,7 +99,9 @@
 		\bigskip
 		\ifbool{ShowCadaster}{Кадастровый номер \txtCadaster}{}
 %		\ifblank{\txtCadaster}{}{Кадастровый номер \txtCadaster}
+		\bigskip
 
+		Контактный телефон: \txtPhoneNumber
 		
 		\vfill
 	

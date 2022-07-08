@@ -24,7 +24,7 @@ MAP_FILE = 'map.png'                                                     # Фа�
 # MAP_FILE = 'map_test.png'                                                     # Файл с обзорной картой
 
 
-def modify_tex_file(filename, address, cadaster, coords):
+def modify_tex_file(filename, address, cadaster, coords, phone):
     """
         Заменим поля адреса участка, кадастрового номера и координат в шаблонном tex-файле на реальные
         Используется шаблонизатор Jinja2
@@ -38,6 +38,7 @@ def modify_tex_file(filename, address, cadaster, coords):
         'ADDRESS': '{' + address + '}',
         'CADASTER': '{' + cadaster + '}',
         'COORDINATES': '{' + coords + '}',
+        'PHONE': '{' + phone + '}',
     }
 
     #  Прочитаем файл целиком
@@ -131,6 +132,10 @@ def parse_report(filename):
         if re.search(r'.*\\newcommand{\\txtAddress}', line):
             # print(line.strip())
             Result.address = pattern2.findall(line)[0]
+        # Phone number
+        if re.search(r'.*\\newcommand{\\txtPhoneNumber}', line):
+            # print(line.strip())
+            Result.phone = pattern2.findall(line)[0]
 
     return Result
 
@@ -151,6 +156,7 @@ if __name__ == '__main__':
     address = area.address
     cadaster = area.cadaster
     coords = area.coords
+    phone = area.phone
 
     # Копируем папку с шаблоном паспорта скважины в папку с изысканиями
     dst_path = gen_bhpassport_folder()
@@ -165,7 +171,7 @@ if __name__ == '__main__':
 
     # Заменим в файле шаблона bhpassport.tex адрес, кад. номер и номенклатуру на реальные
     filename = os.path.join(dst_path, TEX_TEMPLATE_FILE)
-    modify_tex_file(filename, address, cadaster, coords)
+    modify_tex_file(filename, address, cadaster, coords, phone)
 
     # Копируем обзорную карту из папки с отчетом в папку с паспортом скважины
     src_map_path = os.path.join(os.path.curdir, 'images', MAP_FILE)
