@@ -15,7 +15,7 @@ from collections import namedtuple
 from jinja2 import Template
 
 
-BHPASSPORTS_PATH = 'D:\\Home System\\ИЗЫСКАНИЯ\\Паспорта скважин\\2023'  # Путь к корневой папке с паспортами скважин
+BHPASSPORTS_PATH = 'D:\\Home System\\ИЗЫСКАНИЯ\\Паспорта скважин\\2024'  # Путь к корневой папке с паспортами скважин
 BHTEMPLATES_PATH = 'D:\\GIT-REPOS\\latex-templates\\bhpassport'          # Путь к папке с шаблонами паспортов скважин
 TEX_TEMPLATE_FILE = 'bhpassport.tex'                                     # Имя файла с шаблоном паспорта скважины
 TEX_REPORT_FILE = 'water.tex'                                        # Имя TeX файла - отчета по изысканиям
