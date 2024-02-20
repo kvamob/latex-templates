@@ -9,11 +9,12 @@ import datetime
 
 FILENAME = 'bhpassport.tex'             # Имя TeX - файла с паспортом скважины
 
-REESTR_FILE_NAME = 'D:\\OneDrive\\_Реестр скважин\\Реестр скважин.xlsx'
+# REESTR_FILE_NAME = 'D:\\OneDrive\\_Реестр скважин\\Реестр скважин.xlsx'
+REESTR_FILE_NAME = 'D:\\Home System\\ИЗЫСКАНИЯ\\Паспорта скважин\\Реестр скважин.xlsx'
 
 if not os.path.exists(REESTR_FILE_NAME):
-    REESTR_FILE_NAME = 'D:\\SkyDrive\\_Реестр скважин\\Реестр скважин.xlsx'
-
+#    REESTR_FILE_NAME = 'D:\\SkyDrive\\_Реестр скважин\\Реестр скважин.xlsx'
+  REESTR_FILE_NAME = 'D:\\Home System\\ИЗЫСКАНИЯ\\Паспорта скважин\\Реестр скважин.xlsx'
 
 pattern1 = re.compile(r'{(\d*.\d*)}')     # Шаблон 1
 pattern2 = re.compile(r'.*{.*}{(.*)}')   # Шаблон 2
